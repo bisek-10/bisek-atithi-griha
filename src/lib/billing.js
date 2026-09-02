@@ -47,27 +47,34 @@ function diffDays(aStr, bStr) {
   return Math.round((b - a) / 86400000);
 }
 
+// True when a timestamp lands in the small hours BEFORE the 3 AM rollover,
+// i.e. the guest walked in during a hotel day that was already running.
+function isPreDawn(input) {
+  const d = input instanceof Date ? input : new Date(input);
+  return d.getHours() < CHECKIN_CUTOFF_HOUR;
+}
+
 // Builds the list of hotel-day date strings a stay occupies, given the
 // raw check-in timestamp and either a check-out timestamp or "now" for
 // an ongoing stay. Always at least 1 day.
 //
-// Special rule for checkout: if checkout time is before 12:00 PM, the guest
-// is not charged for a full day on that checkout day (only the previous days).
+// Days charged:
+//   - Normal arrival (at or after 3 AM): one day per 3 AM rollover crossed,
+//     so the departure day itself is not charged.
+//       15 Aug 4 AM -> 16 Aug 11 AM = 1 day  [15 Aug]
+//       15 Aug 4 AM -> 17 Aug 11 AM = 2 days [15, 16 Aug]
+//   - Pre-dawn arrival (before 3 AM): charged inclusively, from the hotel day
+//     already running on arrival through the departure day.
+//       15 Aug 2 AM -> 16 Aug 6 PM  = 3 days [14, 15, 16 Aug]
+//
+// The clock time of departure never affects the count. A 1 PM checkout costs
+// the same as an 11 AM one; only the 3 AM hotel-day boundary matters.
 export function nightsList(checkInAt, checkOutAtOrNow) {
   const startStr = hotelDateStr(checkInAt);
-  let endStr = hotelDateStr(checkOutAtOrNow);
+  const endStr = hotelDateStr(checkOutAtOrNow);
 
-  // If checkout time is before 12:00 PM, don't charge for that full day
-  const checkOutDate =
-    checkOutAtOrNow instanceof Date
-      ? checkOutAtOrNow
-      : new Date(checkOutAtOrNow);
-  if (checkOutDate.getHours() < 12) {
-    // Subtract 1 day from endStr
-    endStr = addDaysStr(endStr, -1);
-  }
-
-  let n = diffDays(startStr, endStr) + 1;
+  let n = diffDays(startStr, endStr);
+  if (isPreDawn(checkInAt)) n += 1;
   if (n < 1) n = 1; // minimum one night even for a same-day / early stay
   const days = [];
   for (let i = 0; i < n; i++) days.push(addDaysStr(startStr, i));
