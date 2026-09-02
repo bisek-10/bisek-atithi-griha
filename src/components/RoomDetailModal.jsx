@@ -105,7 +105,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
   if (loading) {
     return (
       <Modal title={`Room ${room.id}`} onClose={onClose}>
-        <p className="text-ink-600 text-sm">Loading…</p>
+        <p className="text-gray-600 text-sm">Loading…</p>
       </Modal>
     );
   }
@@ -203,7 +203,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
           onChanged();
           onClose();
         }}>
-        <p className="text-ink-700 mb-4">
+        <p className="text-gray-700 mb-4">
           Room {currentRoom.id} has been checked out and the bill PDF has
           downloaded. The room is now available again.
         </p>
@@ -212,7 +212,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
             onChanged();
             onClose();
           }}
-          className="bg-pine-700 text-sand-50 rounded-lg px-4 py-2 text-sm font-semibold hover:bg-pine-800">
+          className="bg-pine-700 text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-pine-800">
           Done
         </button>
       </Modal>
@@ -224,24 +224,24 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
       {/* Guest info */}
       <div className="mb-6 grid sm:grid-cols-2 gap-4 text-sm">
         <div>
-          <p className="text-ink-600">Patient</p>
-          <p className="font-semibold text-ink-800">
+          <p className="text-gray-600">Patient</p>
+          <p className="font-semibold text-gray-900">
             {stay.patient_name || "—"}
           </p>
         </div>
         <div>
-          <p className="text-ink-600">Contact</p>
-          <p className="font-semibold text-ink-800">
+          <p className="text-gray-600">Contact</p>
+          <p className="font-semibold text-gray-900">
             {stay.contact_number || "—"}
           </p>
         </div>
         <div>
-          <p className="text-ink-600">Address</p>
-          <p className="font-semibold text-ink-800">{stay.address || "—"}</p>
+          <p className="text-gray-600">Address</p>
+          <p className="font-semibold text-gray-900">{stay.address || "—"}</p>
         </div>
         <div>
-          <p className="text-ink-600">Checked in</p>
-          <p className="font-semibold text-ink-800">
+          <p className="text-gray-600">Checked in</p>
+          <p className="font-semibold text-gray-900">
             {new Date(stay.check_in_at).toLocaleString()} ·{" "}
             {formatBS(stay.check_in_at)} BS
           </p>
@@ -252,12 +252,12 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
         <>
           {/* Occupancy */}
           <section className="mb-6">
-            <h3 className="font-display text-lg text-ink-800 mb-2">
+            <h3 className="font-display text-lg text-gray-900 mb-2">
               People staying in this room
             </h3>
             <table className="w-full text-sm mb-3">
               <thead>
-                <tr className="text-left text-ink-600 border-b border-sand-200">
+                <tr className="text-left text-gray-600 border-b border-gray-200">
                   <th className="py-1">From</th>
                   <th className="py-1">To</th>
                   <th className="py-1">People</th>
@@ -265,7 +265,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
               </thead>
               <tbody>
                 {occupancy.map((p) => (
-                  <tr key={p.id} className="border-b border-sand-100">
+                  <tr key={p.id} className="border-b border-gray-100">
                     <td className="py-1">{formatBS(p.start_date)}</td>
                     <td className="py-1">
                       {p.end_date ? formatBS(p.end_date) : "ongoing"}
@@ -282,7 +282,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 onChange={setNewHeadcountDate}
               />
               <div>
-                <label className="block text-sm font-medium text-ink-700 mb-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   New headcount
                 </label>
                 <input
@@ -290,16 +290,16 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                   min={1}
                   value={newHeadcount}
                   onChange={(e) => setNewHeadcount(e.target.value)}
-                  className="border border-sand-200 rounded-lg px-3 py-2 w-28 text-sm"
+                  className="border border-gray-200 rounded-lg px-3 py-2 w-28 text-sm"
                 />
               </div>
               <button
                 onClick={handleHeadcountSave}
-                className="border border-pine-600 text-pine-700 rounded-lg px-4 py-2 text-sm font-semibold hover:bg-pine-700 hover:text-sand-50 transition-colors">
+                className="border border-pine-600 text-pine-700 rounded-lg px-4 py-2 text-sm font-semibold hover:bg-pine-700 hover:text-white transition-colors">
                 Update
               </button>
             </div>
-            <p className="text-[11px] text-ink-600 mt-1">
+            <p className="text-[11px] text-gray-600 mt-1">
               If more people stay for a few days and then leave, log the change
               here — extra-person charges apply only on the days that had more
               people.
@@ -309,7 +309,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
           {/* Add-ons */}
           <section className="mb-6">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-display text-lg text-ink-800">
+              <h3 className="font-display text-lg text-gray-900">
                 Additional services
               </h3>
               {!showAddonForm && (
@@ -318,7 +318,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                     setEditingAddon(null);
                     setShowAddonForm(true);
                   }}
-                  className="text-sm text-saffron-600 font-semibold hover:underline">
+                  className="text-sm text-pine-700 font-semibold hover:underline">
                   + Add service
                 </button>
               )}
@@ -327,7 +327,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
             {addons.length > 0 && (
               <table className="w-full text-sm mb-3">
                 <thead>
-                  <tr className="text-left text-ink-600 border-b border-sand-200">
+                  <tr className="text-left text-gray-600 border-b border-gray-200">
                     <th className="py-1">Service</th>
                     <th className="py-1">Date(s)</th>
                     <th className="py-1">Qty</th>
@@ -337,7 +337,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 </thead>
                 <tbody>
                   {addons.map((a) => (
-                    <tr key={a.id} className="border-b border-sand-100">
+                    <tr key={a.id} className="border-b border-gray-100">
                       <td className="py-1">{a.label}</td>
                       <td className="py-1">
                         {a.end_date && a.end_date !== a.start_date
@@ -358,7 +358,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                           Edit
                         </button>
                         <button
-                          className="text-brick-500 hover:underline"
+                          className="text-red-600 hover:underline"
                           onClick={() => handleDeleteAddon(a.id)}>
                           Remove
                         </button>
@@ -384,7 +384,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
           </section>
 
           {/* Running total */}
-          <section className="mb-6 bg-sand-100 rounded-xl p-4 text-sm">
+          <section className="mb-6 bg-gray-100 rounded-md p-4 text-sm">
             <p className="flex justify-between">
               <span>
                 Room charges so far ({bill.nights} night
@@ -396,7 +396,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
               <span>Add-on services</span>
               <span>NPR {bill.addonTotal.toFixed(2)}</span>
             </p>
-            <p className="flex justify-between font-semibold text-ink-800 mt-1 pt-1 border-t border-sand-200">
+            <p className="flex justify-between font-semibold text-gray-900 mt-1 pt-1 border-t border-gray-200">
               <span>Running total</span>
               <span>NPR {bill.grandTotal.toFixed(2)}</span>
             </p>
@@ -407,19 +407,19 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
             {!showTransfer ? (
               <button
                 onClick={openTransfer}
-                className="border border-ink-600/30 rounded-lg px-4 py-2 text-sm hover:border-pine-600">
+                className="border border-gray-600/30 rounded-lg px-4 py-2 text-sm hover:border-pine-600">
                 Move to another room
               </button>
             ) : (
               <div className="flex items-end gap-2">
                 <div>
-                  <label className="block text-xs text-ink-700 mb-1">
+                  <label className="block text-xs text-gray-700 mb-1">
                     New room
                   </label>
                   <select
                     value={transferTarget}
                     onChange={(e) => setTransferTarget(e.target.value)}
-                    className="border border-sand-200 rounded-lg px-3 py-2 text-sm">
+                    className="border border-gray-200 rounded-lg px-3 py-2 text-sm">
                     <option value="">Select room</option>
                     {transferOptions.map((r) => (
                       <option key={r.id} value={r.id}>
@@ -432,12 +432,12 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 </div>
                 <button
                   onClick={handleTransfer}
-                  className="bg-pine-700 text-sand-50 rounded-lg px-4 py-2 text-sm font-semibold">
+                  className="bg-pine-700 text-white rounded-lg px-4 py-2 text-sm font-semibold">
                   Confirm move
                 </button>
                 <button
                   onClick={() => setShowTransfer(false)}
-                  className="text-ink-600 text-sm px-2">
+                  className="text-gray-600 text-sm px-2">
                   Cancel
                 </button>
               </div>
@@ -448,7 +448,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 setAmountReceived(bill.grandTotal.toFixed(2));
                 setShowCheckout(true);
               }}
-              className="bg-brick-500 text-sand-50 rounded-lg px-4 py-2 text-sm font-semibold hover:bg-brick-600 transition-colors ml-auto">
+              className="bg-red-600 text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-red-700 transition-colors ml-auto">
               Check out →
             </button>
           </div>
@@ -457,26 +457,26 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
 
       {showCheckout && (
         <section>
-          <h3 className="font-display text-lg text-ink-800 mb-3">
+          <h3 className="font-display text-lg text-gray-900 mb-3">
             Check out — Room {currentRoom.id}
           </h3>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-ink-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Check-out time
             </label>
             <input
               type="datetime-local"
               value={checkOutAt}
               onChange={(e) => setCheckOutAt(e.target.value)}
-              className="border border-sand-200 rounded-lg px-3 py-2 text-sm"
+              className="border border-gray-200 rounded-lg px-3 py-2 text-sm"
             />
-            <p className="text-xs text-ink-600 mt-1">
+            <p className="text-xs text-gray-600 mt-1">
               {formatBS(checkOutAt)} BS
             </p>
           </div>
 
-          <div className="bg-sand-100 rounded-xl p-4 text-sm mb-4 max-h-52 overflow-y-auto">
+          <div className="bg-gray-100 rounded-md p-4 text-sm mb-4 max-h-52 overflow-y-auto">
             {bill.breakdown.map((r) => (
               <p
                 key={`${r.roomId}-${r.dateStr}`}
@@ -488,7 +488,7 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 <span>NPR {r.charge.toFixed(2)}</span>
               </p>
             ))}
-            <p className="flex justify-between font-semibold border-t border-sand-200 mt-2 pt-2">
+            <p className="flex justify-between font-semibold border-t border-gray-200 mt-2 pt-2">
               <span>Room subtotal</span>
               <span>NPR {bill.roomTotal.toFixed(2)}</span>
             </p>
@@ -496,25 +496,25 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
               <span>Add-ons</span>
               <span>NPR {bill.addonTotal.toFixed(2)}</span>
             </p>
-            <p className="flex justify-between font-bold text-ink-800 text-base mt-1">
+            <p className="flex justify-between font-bold text-gray-900 text-base mt-1">
               <span>Grand total</span>
               <span>NPR {bill.grandTotal.toFixed(2)}</span>
             </p>
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-ink-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Payment method
             </label>
             <div className="flex gap-3 mb-3">
               <button
                 onClick={() => setPaymentMethod("cash")}
-                className={`px-4 py-2 rounded-lg text-sm border ${paymentMethod === "cash" ? "bg-pine-700 text-sand-50 border-pine-700" : "border-sand-200"}`}>
+                className={`px-4 py-2 rounded-lg text-sm border ${paymentMethod === "cash" ? "bg-pine-700 text-white border-pine-700" : "border-gray-200"}`}>
                 Cash
               </button>
               <button
                 onClick={() => setPaymentMethod("qr")}
-                className={`px-4 py-2 rounded-lg text-sm border ${paymentMethod === "qr" ? "bg-pine-700 text-sand-50 border-pine-700" : "border-sand-200"}`}>
+                className={`px-4 py-2 rounded-lg text-sm border ${paymentMethod === "qr" ? "bg-pine-700 text-white border-pine-700" : "border-gray-200"}`}>
                 QR payment
               </button>
             </div>
@@ -523,15 +523,15 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 <img
                   src={settings.qr_image_url}
                   alt="Payment QR"
-                  className="w-40 h-40 object-contain border border-sand-200 rounded-lg"
+                  className="w-40 h-40 object-contain border border-gray-200 rounded-lg"
                 />
               ) : (
-                <p className="text-sm text-brick-500">
+                <p className="text-sm text-red-600">
                   No QR image uploaded yet — add one in Settings.
                 </p>
               ))}
             <div className="mt-3">
-              <label className="block text-sm font-medium text-ink-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Amount received (NPR)
               </label>
               <input
@@ -539,27 +539,27 @@ export default function RoomDetailModal({ room, onClose, onChanged }) {
                 step="0.01"
                 value={amountReceived}
                 onChange={(e) => setAmountReceived(e.target.value)}
-                className="border border-sand-200 rounded-lg px-3 py-2 text-sm w-40"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm w-40"
               />
             </div>
           </div>
 
           {checkoutError && (
-            <p className="text-brick-500 text-sm mb-3">{checkoutError}</p>
+            <p className="text-red-600 text-sm mb-3">{checkoutError}</p>
           )}
 
           <div className="flex gap-3">
             <button
               onClick={handleFinishCheckout}
               disabled={checkoutBusy}
-              className="bg-brick-500 text-sand-50 rounded-lg px-5 py-2.5 text-sm font-semibold hover:bg-brick-600 disabled:opacity-60">
+              className="bg-red-600 text-white rounded-lg px-5 py-2.5 text-sm font-semibold hover:bg-red-700 disabled:opacity-60">
               {checkoutBusy
                 ? "Processing…"
                 : "Confirm check-out & generate bill PDF"}
             </button>
             <button
               onClick={() => setShowCheckout(false)}
-              className="text-ink-600 text-sm px-3">
+              className="text-gray-600 text-sm px-3">
               Back
             </button>
           </div>

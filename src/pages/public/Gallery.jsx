@@ -46,15 +46,15 @@ export default function Gallery() {
     <section className="max-w-6xl mx-auto px-6 py-16">
       {/* Header */}
       <div className="max-w-3xl mb-12">
-        <p className="text-xs uppercase tracking-wide text-saffron-600 font-semibold mb-2">
+        <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-2">
           Gallery
         </p>
 
-        <h1 className="font-display text-4xl text-ink-800 mb-4">
+        <h1 className="font-display text-4xl text-gray-900 mb-4">
           A glimpse of Bisek Atithi Griha
         </h1>
 
-        <p className="text-ink-600 leading-7">
+        <p className="text-gray-600 leading-7">
           Take a look at our rooms, facilities and surroundings before your
           stay. We aim to provide a clean, peaceful and comfortable place for
           patients and their families.
@@ -66,7 +66,7 @@ export default function Gallery() {
         {galleryImages.map((image) => (
           <div
             key={image.src}
-            className="group overflow-hidden rounded-2xl border border-sand-200 bg-sand-50">
+            className="group overflow-hidden rounded-lg border border-gray-200 bg-white">
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={image.src}
@@ -77,7 +77,7 @@ export default function Gallery() {
             </div>
 
             <div className="px-5 py-4">
-              <h2 className="font-display text-xl text-ink-800">
+              <h2 className="font-display text-xl text-gray-900">
                 {image.title}
               </h2>
             </div>
@@ -86,12 +86,12 @@ export default function Gallery() {
       </div>
 
       {/* Bottom message */}
-      <div className="mt-16 bg-pine-700 rounded-2xl px-6 py-10 sm:px-10 text-center text-sand-50">
+      <div className="mt-16 bg-pine-700 rounded-lg px-6 py-10 sm:px-10 text-center text-white">
         <h2 className="font-display text-3xl mb-3">
           A comfortable place to stay during treatment
         </h2>
 
-        <p className="text-sand-100 max-w-2xl mx-auto leading-7 mb-6">
+        <p className="text-gray-100 max-w-2xl mx-auto leading-7 mb-6">
           Located near Cancer Gate No. 1 of B.P. Koirala Memorial Cancer
           Hospital, we provide practical and affordable accommodation for
           patients and their families.
@@ -99,7 +99,7 @@ export default function Gallery() {
 
         <a
           href="/rooms"
-          className="inline-block bg-sand-50 text-pine-800 px-6 py-3 rounded-full text-sm font-semibold hover:bg-sand-100 transition-colors shadow-sm">
+          className="inline-block bg-white text-pine-800 px-6 py-3 rounded-md text-sm font-semibold hover:bg-gray-100 transition-colors shadow-sm">
           View Our Rooms
         </a>
       </div>

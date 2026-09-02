@@ -1,7 +1,7 @@
 export default function Modal({ title, onClose, children, wide = false }) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/50 backdrop-blur-[2px] p-4 sm:p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-[2px] p-4 sm:p-6"
       onClick={onClose}>
       <div
         className={`
@@ -10,17 +10,16 @@ export default function Modal({ title, onClose, children, wide = false }) {
           max-h-[90vh]
           flex flex-col
           overflow-hidden
-          rounded-2xl
-          border border-sand-200
+          rounded-lg
+          border border-gray-200
           bg-white
-          shadow-2xl
-          animate-fade-in-up
+          shadow-lg
         `}
         onClick={(e) => e.stopPropagation()}>
         {/* Header */}
-        <div className="flex items-center justify-between gap-4 px-6 py-5 border-b border-sand-200 bg-white shrink-0">
+        <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-gray-200 bg-white shrink-0">
           <div className="min-w-0">
-            <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink-800 truncate">
+            <h2 className="font-display text-xl sm:text-2xl font-semibold text-gray-900 truncate">
               {title}
             </h2>
           </div>
@@ -33,14 +32,14 @@ export default function Modal({ title, onClose, children, wide = false }) {
               shrink-0
               w-9 h-9
               flex items-center justify-center
-              rounded-lg
-              border border-sand-200
-              bg-sand-50
-              text-ink-500
+              rounded-md
+              border border-gray-200
+              bg-gray-50
+              text-gray-400
               text-xl
               leading-none
-              hover:bg-sand-100
-              hover:text-ink-800
+              hover:bg-gray-100
+              hover:text-gray-600
               transition-colors
             ">
             ×

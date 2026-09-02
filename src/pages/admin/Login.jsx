@@ -29,13 +29,13 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-ink-800 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-6">
       <form
         onSubmit={handleSubmit}
-        className="bg-sand-50 rounded-2xl p-8 w-full max-w-sm shadow-xl">
-        <h1 className="font-display text-2xl text-ink-800 mb-1">Staff login</h1>
+        className="bg-white rounded-lg p-8 w-full max-w-sm shadow-xl">
+        <h1 className="font-display text-2xl text-gray-900 mb-1">Staff login</h1>
 
-        <label className="block text-sm font-medium text-ink-700 mb-1">
+        <label className="block text-sm font-medium text-gray-700 mb-1">
           Email
         </label>
         <input
@@ -43,10 +43,10 @@ export default function Login() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border border-sand-200 rounded-lg px-3 py-2 mb-4 focus:border-pine-600 outline-none"
+          className="w-full border border-gray-200 rounded-lg px-3 py-2 mb-4 focus:border-pine-600 outline-none"
         />
 
-        <label className="block text-sm font-medium text-ink-700 mb-1">
+        <label className="block text-sm font-medium text-gray-700 mb-1">
           Password
         </label>
         <input
@@ -54,15 +54,15 @@ export default function Login() {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full border border-sand-200 rounded-lg px-3 py-2 mb-4 focus:border-pine-600 outline-none"
+          className="w-full border border-gray-200 rounded-lg px-3 py-2 mb-4 focus:border-pine-600 outline-none"
         />
 
-        {error && <p className="text-brick-500 text-sm mb-4">{error}</p>}
+        {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-pine-700 text-sand-50 rounded-lg py-2.5 font-semibold hover:bg-pine-800 transition-colors disabled:opacity-60">
+          className="w-full bg-pine-700 text-white rounded-lg py-2.5 font-semibold hover:bg-pine-800 transition-colors disabled:opacity-60">
           {loading ? "Signing in…" : "Sign in"}
         </button>
 

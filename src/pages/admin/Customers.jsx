@@ -38,7 +38,7 @@ export default function Customers() {
   return (
     <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <h1 className="font-display text-3xl text-ink-800 tracking-tight">Customer Records</h1>
+        <h1 className="font-display text-3xl text-gray-900 tracking-tight">Customer Records</h1>
         
         <form onSubmit={handleSearch} className="flex flex-wrap items-center gap-3 w-full md:w-auto">
           <div className="relative flex-1 md:w-80">
@@ -46,84 +46,84 @@ export default function Customers() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search customers..."
-              className="w-full bg-white border border-sand-200 rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all"
+              className="w-full bg-white border border-gray-200 rounded-md pl-10 pr-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all"
             />
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="bg-white border border-sand-200 rounded-xl px-4 py-2.5 text-sm font-medium text-ink-700 outline-none focus:ring-2 focus:ring-pine-700/20 transition-all"
+            className="bg-white border border-gray-200 rounded-md px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:ring-2 focus:ring-pine-700/20 transition-all"
           >
             <option value="all">All Stays</option>
             <option value="occupied">Staying</option>
             <option value="checked_out">Checked out</option>
           </select>
-          <button type="submit" className="bg-pine-700 text-sand-50 rounded-xl px-6 py-2.5 text-sm font-bold hover:bg-pine-800 transition-all shadow-lg shadow-pine-900/10">
+          <button type="submit" className="bg-pine-700 text-white rounded-md px-6 py-2.5 text-sm font-bold hover:bg-pine-800 transition-all shadow-lg shadow-pine-900/10">
             Search
           </button>
         </form>
       </div>
 
-      <div className="bg-white border border-sand-200 rounded-[2rem] shadow-sm overflow-hidden">
+      <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
-              <tr className="bg-sand-50 border-b border-sand-200">
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">Customer Details</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">Contact</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">Room</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">Check-in Date</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">Status</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest text-right">Return Estimate</th>
+              <tr className="bg-white border-b border-gray-200">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Customer Details</th>
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Contact</th>
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Room</th>
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Check-in Date</th>
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Status</th>
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest text-right">Return Estimate</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sand-100">
+            <tbody className="divide-y divide-gray-200">
               {loading ? (
                 <tr>
                   <td colSpan={6} className="px-6 py-20 text-center">
                     <div className="flex flex-col items-center gap-3">
-                      <div className="w-8 h-8 border-3 border-sand-200 border-t-pine-700 rounded-full animate-spin"></div>
-                      <p className="text-sm font-medium text-ink-400">Loading history...</p>
+                      <div className="w-8 h-8 border-3 border-gray-200 border-t-pine-700 rounded-md animate-spin"></div>
+                      <p className="text-sm font-medium text-gray-400">Loading history...</p>
                     </div>
                   </td>
                 </tr>
               ) : visible.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-20 text-center text-ink-400 font-medium">
+                  <td colSpan={6} className="px-6 py-20 text-center text-gray-400 font-medium">
                     No matching customer records found.
                   </td>
                 </tr>
               ) : (
                 visible.map((s) => (
-                  <tr key={s.id} className="group hover:bg-sand-50/50 transition-colors">
+                  <tr key={s.id} className="group hover:bg-white/50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="space-y-0.5">
-                        <p className="text-sm font-bold text-ink-800">{s.patient_name || '—'}</p>
-                        <p className="text-xs text-ink-400">{s.address || '—'}</p>
+                        <p className="text-sm font-bold text-gray-900">{s.patient_name || '—'}</p>
+                        <p className="text-xs text-gray-400">{s.address || '—'}</p>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="text-sm font-medium text-ink-700">{s.contact_number || '—'}</p>
+                      <p className="text-sm font-medium text-gray-700">{s.contact_number || '—'}</p>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-sand-100 text-sm font-display text-ink-800">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100 text-sm font-display text-gray-900">
                         {s.room_id}
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="text-sm text-ink-700 font-medium">{formatBS(s.check_in_at)}</p>
-                      <p className="text-[10px] text-ink-400 uppercase tracking-tighter">
+                      <p className="text-sm text-gray-700 font-medium">{formatBS(s.check_in_at)}</p>
+                      <p className="text-[10px] text-gray-400 uppercase tracking-tighter">
                         {new Date(s.check_in_at).toLocaleDateString('en-GB')}
                       </p>
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                      <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
                         s.status === 'occupied' 
                           ? 'bg-room-free/10 text-room-free' 
-                          : 'bg-ink-400/10 text-ink-500'
+                          : 'bg-gray-400/10 text-gray-500'
                       }`}>
                         {s.status === 'occupied' ? 'Staying' : 'Checked out'}
                       </span>
@@ -136,7 +136,7 @@ export default function Customers() {
                             onChange={(d) => saveReturnDate(s.id, d)}
                           />
                           <button 
-                            className="p-1.5 rounded-lg text-ink-400 hover:bg-brick-500/10 hover:text-brick-500 transition-colors" 
+                            className="p-1.5 rounded-lg text-gray-400 hover:bg-red-500/10 hover:text-red-600 transition-colors" 
                             onClick={() => setEditingReturn(null)}
                           >
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -157,7 +157,7 @@ export default function Customers() {
                               </svg>
                             </>
                           ) : (
-                            <span className="text-xs text-ink-400 italic font-normal">+ Add estimate</span>
+                            <span className="text-xs text-gray-400 italic font-normal">+ Add estimate</span>
                           )}
                         </button>
                       )}

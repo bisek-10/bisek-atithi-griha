@@ -50,10 +50,24 @@ function diffDays(aStr, bStr) {
 // Builds the list of hotel-day date strings a stay occupies, given the
 // raw check-in timestamp and either a check-out timestamp or "now" for
 // an ongoing stay. Always at least 1 day.
+//
+// Special rule for checkout: if checkout time is before 12:00 PM, the guest
+// is not charged for a full day on that checkout day (only the previous days).
 export function nightsList(checkInAt, checkOutAtOrNow) {
   const startStr = hotelDateStr(checkInAt);
   let endStr = hotelDateStr(checkOutAtOrNow);
-  let n = diffDays(startStr, endStr);
+
+  // If checkout time is before 12:00 PM, don't charge for that full day
+  const checkOutDate =
+    checkOutAtOrNow instanceof Date
+      ? checkOutAtOrNow
+      : new Date(checkOutAtOrNow);
+  if (checkOutDate.getHours() < 12) {
+    // Subtract 1 day from endStr
+    endStr = addDaysStr(endStr, -1);
+  }
+
+  let n = diffDays(startStr, endStr) + 1;
   if (n < 1) n = 1; // minimum one night even for a same-day / early stay
   const days = [];
   for (let i = 0; i < n; i++) days.push(addDaysStr(startStr, i));

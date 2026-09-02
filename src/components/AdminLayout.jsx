@@ -105,7 +105,7 @@ export default function AdminLayout() {
 
   const sidebarClasses = `
     fixed inset-y-0 left-0 z-40
-    bg-ink-800 text-sand-100
+    bg-gray-900 text-white
     transition-all duration-300 ease-in-out transform
     lg:translate-x-0 lg:static lg:block
     ${isCollapsed ? "lg:w-20" : "lg:w-64"}
@@ -113,13 +113,13 @@ export default function AdminLayout() {
   `;
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-sand-100 font-body">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50 font-body">
       {/* Mobile Header */}
-      <header className="lg:hidden bg-ink-800 text-sand-50 p-4 flex items-center justify-between sticky top-0 z-30">
+      <header className="lg:hidden bg-gray-900 text-white p-4 flex items-center justify-between sticky top-0 z-30">
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsMobileOpen(true)}
-            className="p-1 hover:bg-ink-700 rounded-md"
+            className="p-1 hover:bg-gray-800 rounded-md"
             aria-label="Open menu">
             <svg
               className="w-6 h-6"
@@ -140,7 +140,7 @@ export default function AdminLayout() {
           </span>
         </div>
 
-        <p className="text-xs text-sand-100/60 font-medium">Management</p>
+        <p className="text-xs text-white/60 font-medium">Management</p>
       </header>
 
       {/* Mobile Backdrop */}
@@ -158,18 +158,18 @@ export default function AdminLayout() {
             isCollapsed ? "lg:flex-col lg:gap-4" : ""
           }`}>
           <div className={isCollapsed ? "lg:hidden" : "block"}>
-            <p className="font-display text-xl text-sand-50 leading-tight">
+            <p className="font-display text-xl text-white leading-tight">
               Bisek Atithi Griha
             </p>
 
-            <p className="text-[10px] uppercase tracking-widest text-sand-100/40 mt-1 font-semibold">
+            <p className="text-[10px] uppercase tracking-widest text-white/40 mt-1 font-semibold">
               Management
             </p>
           </div>
 
           {isCollapsed && (
             <div className="hidden lg:flex flex-col items-center gap-1">
-              <div className="w-8 h-8 rounded-lg bg-pine-700 flex items-center justify-center font-display text-sand-50">
+              <div className="w-8 h-8 rounded-lg bg-pine-700 flex items-center justify-center font-display text-white">
                 B
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function AdminLayout() {
 
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-full bg-ink-700 text-sand-100/50 hover:text-sand-50 transition-colors"
+            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-md bg-gray-800 text-white/50 hover:text-white transition-colors"
             title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}>
             <svg
               className={`w-4 h-4 transition-transform duration-300 ${
@@ -205,10 +205,10 @@ export default function AdminLayout() {
               end={link.end}
               title={isCollapsed ? link.label : ""}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group ${
+                `flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 group ${
                   isActive
-                    ? "bg-pine-700 text-sand-50 shadow-lg shadow-pine-900/20"
-                    : "text-sand-100/60 hover:bg-ink-700 hover:text-sand-50"
+                    ? "bg-pine-700 text-white shadow-lg shadow-pine-900/20"
+                    : "text-white/60 hover:bg-gray-800 hover:text-white"
                 } ${isCollapsed ? "lg:justify-center lg:px-0" : ""}`
               }>
               {/* Fixed: isActive is no longer referenced outside its scope */}
@@ -225,7 +225,7 @@ export default function AdminLayout() {
         <div className="absolute bottom-4 left-0 right-0 px-3">
           <button
             onClick={() => signOut()}
-            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-brick-500 hover:bg-brick-500/10 transition-all ${
+            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-red-500 hover:bg-red-500/10 transition-all ${
               isCollapsed ? "lg:justify-center lg:px-0" : ""
             }`}
             title={isCollapsed ? "Sign out" : ""}>

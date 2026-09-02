@@ -39,13 +39,13 @@ export default function AddonForm({ catalog, onSubmit, onCancel, initial, maxDat
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3 border border-sand-200 rounded-xl p-4 bg-white">
+    <form onSubmit={submit} className="space-y-3 border border-gray-200 rounded-md p-4 bg-white">
       <div>
-        <label className="block text-xs font-medium text-ink-700 mb-1">Service</label>
+        <label className="block text-xs font-medium text-gray-700 mb-1">Service</label>
         <select
           value={catalogId}
           onChange={(e) => handleCatalogChange(e.target.value)}
-          className="w-full border border-sand-200 rounded-lg px-3 py-2 text-sm"
+          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
         >
           {catalog.map((c) => (
             <option key={c.id} value={c.id}>
@@ -57,16 +57,16 @@ export default function AddonForm({ catalog, onSubmit, onCancel, initial, maxDat
 
       {selectedCatalog?.name === 'Other' && (
         <div>
-          <label className="block text-xs font-medium text-ink-700 mb-1">Describe service</label>
+          <label className="block text-xs font-medium text-gray-700 mb-1">Describe service</label>
           <input
             value={customLabel}
             onChange={(e) => setCustomLabel(e.target.value)}
-            className="w-full border border-sand-200 rounded-lg px-3 py-2 text-sm"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
           />
         </div>
       )}
 
-      <label className="flex items-center gap-2 text-xs text-ink-600">
+      <label className="flex items-center gap-2 text-xs text-gray-600">
         <input type="checkbox" checked={isRange} onChange={(e) => setIsRange(e.target.checked)} />
         This applied over a date range (e.g. appliance used for several days)
       </label>
@@ -78,46 +78,46 @@ export default function AddonForm({ catalog, onSubmit, onCancel, initial, maxDat
         )}
       </div>
 
-      <p className="text-[11px] text-ink-600">
+      <p className="text-[11px] text-gray-600">
         You can pick any past date here — useful if a service was used a few days ago and wasn't
         logged at the time.
       </p>
 
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs font-medium text-ink-700 mb-1">Quantity</label>
+          <label className="block text-xs font-medium text-gray-700 mb-1">Quantity</label>
           <input
             type="number"
             min={0}
             step="0.5"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
-            className="w-full border border-sand-200 rounded-lg px-3 py-2 text-sm"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-ink-700 mb-1">Unit price (NPR)</label>
+          <label className="block text-xs font-medium text-gray-700 mb-1">Unit price (NPR)</label>
           <input
             type="number"
             min={0}
             step="0.01"
             value={unitPrice}
             onChange={(e) => setUnitPrice(e.target.value)}
-            className="w-full border border-sand-200 rounded-lg px-3 py-2 text-sm"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-ink-700 mb-1">Note (optional)</label>
-        <input value={note} onChange={(e) => setNote(e.target.value)} className="w-full border border-sand-200 rounded-lg px-3 py-2 text-sm" />
+        <label className="block text-xs font-medium text-gray-700 mb-1">Note (optional)</label>
+        <input value={note} onChange={(e) => setNote(e.target.value)} className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm" />
       </div>
 
       <div className="flex gap-2 pt-1">
-        <button type="submit" className="bg-pine-700 text-sand-50 rounded-lg px-4 py-2 text-sm font-semibold hover:bg-pine-800">
+        <button type="submit" className="bg-pine-700 text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-pine-800">
           Save
         </button>
-        <button type="button" onClick={onCancel} className="text-ink-600 text-sm px-4 py-2 hover:text-ink-800">
+        <button type="button" onClick={onCancel} className="text-gray-600 text-sm px-4 py-2 hover:text-gray-900">
           Cancel
         </button>
       </div>

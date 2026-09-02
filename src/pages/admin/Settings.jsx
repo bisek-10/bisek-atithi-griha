@@ -121,8 +121,8 @@ export default function Settings() {
 
   if (loading)
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-ink-400 gap-4">
-        <div className="w-10 h-10 border-4 border-sand-200 border-t-pine-700 rounded-full animate-spin"></div>
+      <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-4">
+        <div className="w-10 h-10 border-4 border-gray-200 border-t-pine-700 rounded-md animate-spin"></div>
         <p className="text-sm font-medium">Loading settings...</p>
       </div>
     );
@@ -130,27 +130,27 @@ export default function Settings() {
   return (
     <div className="p-4 md:p-8 max-w-5xl mx-auto space-y-12">
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-3xl text-ink-800 tracking-tight">
+        <h1 className="font-display text-3xl text-gray-900 tracking-tight">
           Settings
         </h1>
         {savedMsg && (
-          <div className="bg-pine-700 text-sand-50 px-4 py-2 rounded-xl text-xs font-bold shadow-lg animate-fade-in-up">
+          <div className="bg-pine-700 text-white px-4 py-2 rounded-md text-xs font-bold shadow-lg animate-fade-in-up">
             {savedMsg}
           </div>
         )}
       </div>
 
       {/* Hotel Profile */}
-      <section className="bg-white border border-sand-200 rounded-[2rem] p-8 shadow-sm">
+      <section className="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm">
         <div className="mb-8">
-          <h2 className="font-display text-xl text-ink-800">Hotel Profile</h2>
-          <p className="text-xs font-bold text-ink-400 uppercase tracking-widest mt-1">
+          <h2 className="font-display text-xl text-gray-900">Hotel Profile</h2>
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
             General information shown on bills
           </p>
         </div>
         <form onSubmit={saveProfile} className="grid sm:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-ink-600 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">
               Business Name
             </label>
             <input
@@ -158,11 +158,11 @@ export default function Settings() {
               onChange={(e) =>
                 setProfile((p) => ({ ...p, name: e.target.value }))
               }
-              className="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all font-medium"
+              className="w-full bg-white border border-gray-200 rounded-md px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all font-medium"
             />
           </div>
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-ink-600 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">
               Contact Phone
             </label>
             <input
@@ -170,11 +170,11 @@ export default function Settings() {
               onChange={(e) =>
                 setProfile((p) => ({ ...p, phone: e.target.value }))
               }
-              className="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all font-medium"
+              className="w-full bg-white border border-gray-200 rounded-md px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all font-medium"
             />
           </div>
           <div className="sm:col-span-2 space-y-2">
-            <label className="block text-xs font-bold text-ink-600 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">
               Address
             </label>
             <input
@@ -182,13 +182,13 @@ export default function Settings() {
               onChange={(e) =>
                 setProfile((p) => ({ ...p, address: e.target.value }))
               }
-              className="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all font-medium"
+              className="w-full bg-white border border-gray-200 rounded-md px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pine-700/20 transition-all font-medium"
             />
           </div>
           <div className="sm:col-span-2 pt-2">
             <button
               type="submit"
-              className="bg-pine-700 text-sand-50 rounded-xl px-8 py-3 text-sm font-bold hover:bg-pine-800 transition-all shadow-lg shadow-pine-900/10 active:scale-[0.98]">
+              className="bg-pine-700 text-white rounded-md px-8 py-3 text-sm font-bold hover:bg-pine-800 transition-all shadow-lg shadow-pine-900/10 active:scale-[0.98]">
               Save Profile Changes
             </button>
           </div>
@@ -196,10 +196,10 @@ export default function Settings() {
       </section>
 
       {/* QR Code */}
-      <section className="bg-white border border-sand-200 rounded-[2rem] p-8 shadow-sm">
+      <section className="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm">
         <div className="mb-8">
-          <h2 className="font-display text-xl text-ink-800">Payment QR Code</h2>
-          <p className="text-xs font-bold text-ink-400 uppercase tracking-widest mt-1">
+          <h2 className="font-display text-xl text-gray-900">Payment QR Code</h2>
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
             Guests scan this to pay at checkout
           </p>
         </div>
@@ -210,16 +210,16 @@ export default function Settings() {
                 <img
                   src={settings.qr_image_url}
                   alt="Current QR"
-                  className="w-40 h-40 object-contain bg-sand-50 border border-sand-200 rounded-2xl p-2 shadow-inner"
+                  className="w-40 h-40 object-contain bg-white border border-gray-200 rounded-lg p-2 shadow-inner"
                 />
-                <div className="absolute inset-0 bg-ink-800/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl flex items-center justify-center">
+                <div className="absolute inset-0 bg-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
                   <p className="text-[10px] text-white font-bold uppercase tracking-widest">
                     Active QR
                   </p>
                 </div>
               </div>
             ) : (
-              <div className="w-40 h-40 bg-sand-100 border-2 border-dashed border-sand-200 rounded-2xl flex items-center justify-center text-ink-400">
+              <div className="w-40 h-40 bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg flex items-center justify-center text-gray-400">
                 <svg
                   className="w-8 h-8"
                   fill="none"
@@ -236,7 +236,7 @@ export default function Settings() {
             )}
           </div>
           <div className="flex-1 space-y-4">
-            <p className="text-sm text-ink-600 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               Upload a clear photo of your merchant QR (eSewa, Khalti, or Bank).
               This will be embedded in the checkout interface.
             </p>
@@ -249,10 +249,10 @@ export default function Settings() {
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
               />
               <div
-                className={`px-6 py-2.5 rounded-xl border border-sand-300 text-sm font-bold flex items-center gap-2 transition-all ${uploading ? "bg-sand-100 text-ink-400" : "bg-white text-ink-800 hover:border-pine-700 hover:text-pine-700 shadow-sm"}`}>
+                className={`px-6 py-2.5 rounded-md border border-gray-300 text-sm font-bold flex items-center gap-2 transition-all ${uploading ? "bg-gray-100 text-gray-400" : "bg-white text-gray-900 hover:border-pine-700 hover:text-pine-700 shadow-sm"}`}>
                 {uploading ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-sand-200 border-t-pine-700 rounded-full animate-spin"></div>
+                    <div className="w-4 h-4 border-2 border-gray-200 border-t-pine-700 rounded-md animate-spin"></div>
                     Uploading...
                   </>
                 ) : (
@@ -279,46 +279,46 @@ export default function Settings() {
       </section>
 
       {/* Room Rates */}
-      <section className="bg-white border border-sand-200 rounded-[2rem] overflow-hidden shadow-sm">
+      <section className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
         <div className="p-8">
-          <h2 className="font-display text-xl text-ink-800">Rooms & Rates</h2>
-          <p className="text-xs font-bold text-ink-400 uppercase tracking-widest mt-1">
+          <h2 className="font-display text-xl text-gray-900">Rooms & Rates</h2>
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
             Configure room types and pricing
           </p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-sand-50 border-y border-sand-200">
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+              <tr className="bg-white border-y border-gray-200">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Room
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Type
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Base Rate
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Standard Occ.
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Extra/Person
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Status
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest text-right">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest text-right">
                   Action
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sand-100">
+            <tbody className="divide-y divide-gray-200">
               {rooms.map((r) => (
                 <tr
                   key={r.id}
-                  className="hover:bg-sand-50/50 transition-colors">
-                  <td className="px-6 py-4 font-display text-lg text-ink-800">
+                  className="hover:bg-white/50 transition-colors">
+                  <td className="px-6 py-4 font-display text-lg text-gray-900">
                     {r.id}
                   </td>
                   <td className="px-6 py-4">
@@ -327,14 +327,14 @@ export default function Settings() {
                       onChange={(e) =>
                         updateRoomField(r.id, "bathroom_type", e.target.value)
                       }
-                      className="bg-sand-50 border border-sand-200 rounded-lg px-2 py-1.5 text-xs font-medium outline-none focus:ring-2 focus:ring-pine-700/20">
+                      className="bg-white border border-gray-200 rounded-lg px-2 py-1.5 text-xs font-medium outline-none focus:ring-2 focus:ring-pine-700/20">
                       <option value="attached">Attached Bath</option>
                       <option value="non_attached">Shared Bath</option>
                     </select>
                   </td>
                   <td className="px-6 py-4">
                     <div className="relative">
-                      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-ink-400 font-bold">
+                      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-bold">
                         NPR
                       </span>
                       <input
@@ -343,7 +343,7 @@ export default function Settings() {
                         onChange={(e) =>
                           updateRoomField(r.id, "base_rate", e.target.value)
                         }
-                        className="w-28 bg-sand-50 border border-sand-200 rounded-lg pl-9 pr-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20"
+                        className="w-28 bg-white border border-gray-200 rounded-lg pl-9 pr-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20"
                       />
                     </div>
                   </td>
@@ -358,12 +358,12 @@ export default function Settings() {
                           e.target.value,
                         )
                       }
-                      className="w-16 bg-sand-50 border border-sand-200 rounded-lg px-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20 text-center"
+                      className="w-16 bg-white border border-gray-200 rounded-lg px-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20 text-center"
                     />
                   </td>
                   <td className="px-6 py-4">
                     <div className="relative">
-                      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-ink-400 font-bold">
+                      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-bold">
                         NPR
                       </span>
                       <input
@@ -376,7 +376,7 @@ export default function Settings() {
                             e.target.value,
                           )
                         }
-                        className="w-24 bg-sand-50 border border-sand-200 rounded-lg pl-9 pr-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20"
+                        className="w-24 bg-white border border-gray-200 rounded-lg pl-9 pr-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20"
                       />
                     </div>
                   </td>
@@ -390,7 +390,7 @@ export default function Settings() {
                         }
                         className="sr-only peer"
                       />
-                      <div className="w-9 h-5 bg-sand-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-pine-700"></div>
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-md peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-md after:h-4 after:w-4 after:transition-all peer-checked:bg-pine-700"></div>
                     </label>
                   </td>
                   <td className="px-6 py-4 text-right">
@@ -408,19 +408,19 @@ export default function Settings() {
       </section>
 
       {/* Service Catalog */}
-      <section className="bg-white border border-sand-200 rounded-[2rem] overflow-hidden shadow-sm">
+      <section className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
         <div className="p-8 flex items-center justify-between">
           <div>
-            <h2 className="font-display text-xl text-ink-800">
+            <h2 className="font-display text-xl text-gray-900">
               Additional Services
             </h2>
-            <p className="text-xs font-bold text-ink-400 uppercase tracking-widest mt-1">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
               Manage add-ons services
             </p>
           </div>
           <button
             onClick={addCatalogItem}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-saffron-500 text-white rounded-xl text-xs font-bold hover:bg-saffron-600 transition-all shadow-md shadow-saffron-500/20 active:scale-[0.98]">
+            className="inline-flex items-center gap-2 px-4 py-2 bg-pine-700 text-white rounded-md text-xs font-bold hover:bg-pine-800 transition-all shadow-md shadow-pine-700/20 active:scale-[0.98]">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -439,38 +439,38 @@ export default function Settings() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left border-collapse min-w-[600px]">
             <thead>
-              <tr className="bg-sand-50 border-y border-sand-200">
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+              <tr className="bg-white border-y border-gray-200">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Service Name
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Base Price
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   Unit
                 </th>
-                <th className="px-6 py-4 text-[10px] font-bold text-ink-400 uppercase tracking-widest text-right">
+                <th className="px-6 py-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest text-right">
                   Action
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sand-100">
+            <tbody className="divide-y divide-gray-200">
               {catalog.map((c) => (
                 <tr
                   key={c.id}
-                  className="hover:bg-sand-50/50 transition-colors">
+                  className="hover:bg-white/50 transition-colors">
                   <td className="px-6 py-4">
                     <input
                       value={c.name}
                       onChange={(e) =>
                         updateCatalogField(c.id, "name", e.target.value)
                       }
-                      className="w-full bg-sand-50 border border-sand-200 rounded-lg px-3 py-1.5 text-xs font-medium outline-none focus:ring-2 focus:ring-pine-700/20"
+                      className="w-full bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-medium outline-none focus:ring-2 focus:ring-pine-700/20"
                     />
                   </td>
                   <td className="px-6 py-4">
                     <div className="relative">
-                      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-ink-400 font-bold">
+                      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-bold">
                         NPR
                       </span>
                       <input
@@ -483,7 +483,7 @@ export default function Settings() {
                             e.target.value,
                           )
                         }
-                        className="w-32 bg-sand-50 border border-sand-200 rounded-lg pl-9 pr-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20"
+                        className="w-32 bg-white border border-gray-200 rounded-lg pl-9 pr-2 py-1.5 text-xs font-bold outline-none focus:ring-2 focus:ring-pine-700/20"
                       />
                     </div>
                   </td>
@@ -493,7 +493,7 @@ export default function Settings() {
                       onChange={(e) =>
                         updateCatalogField(c.id, "unit_type", e.target.value)
                       }
-                      className="bg-sand-50 border border-sand-200 rounded-lg px-2 py-1.5 text-xs font-medium outline-none focus:ring-2 focus:ring-pine-700/20">
+                      className="bg-white border border-gray-200 rounded-lg px-2 py-1.5 text-xs font-medium outline-none focus:ring-2 focus:ring-pine-700/20">
                       <option value="one_time">One-time Charge</option>
                       <option value="per_day">Daily Recurring</option>
                     </select>

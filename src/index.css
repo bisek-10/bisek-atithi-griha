@@ -7,67 +7,32 @@ html {
 }
 
 body {
-  @apply bg-sand-50 text-ink-700 font-body antialiased;
+  @apply bg-white text-gray-900 font-body antialiased;
 }
 
 ::selection {
-  @apply bg-saffron-400/30;
+  @apply bg-pine-700/15 text-gray-900;
 }
 
 :focus-visible {
-  outline: 2px solid #25402F;
+  outline: 2px solid #25402f;
   outline-offset: 2px;
 }
 
-/* Custom Scrollbar */
+/* Clean Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-sand-100;
+  @apply bg-gray-100;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-sand-300 rounded-full border-2 border-sand-100;
+  @apply bg-gray-300 rounded-full;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.4s ease-out forwards;
-}
-
-/* day-strip signature motif */
-.day-strip {
-  display: flex;
-  gap: 3px;
-  align-items: flex-end;
-}
-
-.day-strip span {
-  display: block;
-  width: 3px;
-  background: currentColor;
-  opacity: 0.35;
-  border-radius: 1px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
 }

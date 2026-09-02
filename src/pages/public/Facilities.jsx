@@ -60,15 +60,15 @@ export default function Facilities() {
     <section className="max-w-6xl mx-auto px-6 py-16">
       {/* Header */}
       <div className="max-w-3xl mb-12">
-        <p className="text-xs uppercase tracking-wide text-saffron-600 font-semibold mb-2">
+        <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-2">
           Our Services & Facilities
         </p>
 
-        <h1 className="font-display text-4xl text-ink-800 mb-4">
+        <h1 className="font-display text-4xl text-gray-900 mb-4">
           Comfort and essentials for your stay
         </h1>
 
-        <p className="text-ink-600 leading-7">
+        <p className="text-gray-600 leading-7">
           We provide a supportive, peaceful and budget-friendly environment for
           patients and their families staying near B.P. Koirala Memorial Cancer
           Hospital.
@@ -80,16 +80,16 @@ export default function Facilities() {
         {facilities.map((facility) => (
           <div
             key={facility.title}
-            className="bg-sand-50 border border-sand-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+            className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
             <div className="text-4xl mb-5" aria-hidden="true">
               {facility.icon}
             </div>
 
-            <h2 className="font-display text-2xl text-ink-800 mb-3">
+            <h2 className="font-display text-2xl text-gray-900 mb-3">
               {facility.title}
             </h2>
 
-            <p className="text-ink-600 leading-7 text-sm">
+            <p className="text-gray-600 leading-7 text-sm">
               {facility.description}
             </p>
           </div>
@@ -97,9 +97,9 @@ export default function Facilities() {
       </div>
 
       {/* Location highlight */}
-      <div className="mt-16 bg-pine-700 rounded-2xl px-6 py-10 sm:px-10 text-sand-50">
+      <div className="mt-16 bg-pine-700 rounded-lg px-6 py-10 sm:px-10 text-white">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide text-saffron-300 font-semibold mb-2">
+          <p className="text-xs uppercase tracking-wide text-pine-600 font-semibold mb-2">
             Conveniently Located
           </p>
 
@@ -107,7 +107,7 @@ export default function Facilities() {
             Stay close to B.P. Koirala Memorial Cancer Hospital
           </h2>
 
-          <p className="text-sand-100 leading-7 mb-6">
+          <p className="text-gray-100 leading-7 mb-6">
             Bisek Atithi Griha is located near Cancer Gate No. 1, Bharatpur-7,
             Chitwan. The convenient location helps reduce travel time and
             fatigue for patients and families attending regular hospital
@@ -118,7 +118,7 @@ export default function Facilities() {
             href="https://maps.app.goo.gl/L1uV9MmCwLr9skcN7"
             target="_blank"
             rel="noreferrer"
-            className="inline-block bg-sand-50 text-pine-800 px-6 py-3 rounded-full text-sm font-semibold hover:bg-sand-100 transition-colors shadow-sm">
+            className="inline-block bg-white text-pine-800 px-6 py-3 rounded-md text-sm font-semibold hover:bg-gray-100 transition-colors shadow-sm">
             View our location
           </a>
         </div>
@@ -126,18 +126,18 @@ export default function Facilities() {
 
       {/* Bottom CTA */}
       <div className="text-center mt-16">
-        <h2 className="font-display text-3xl text-ink-800 mb-3">
+        <h2 className="font-display text-3xl text-gray-900 mb-3">
           Looking for an affordable place to stay?
         </h2>
 
-        <p className="text-ink-600 max-w-2xl mx-auto mb-6">
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
           Explore our rooms and find an option that suits your needs during your
           hospital stay.
         </p>
 
         <a
           href="/rooms"
-          className="inline-block bg-pine-700 text-sand-50 px-6 py-3 rounded-full text-sm font-semibold hover:bg-pine-800 transition-colors shadow-sm">
+          className="inline-block bg-pine-700 text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-pine-800 transition-colors shadow-sm">
           View Rooms
         </a>
       </div>

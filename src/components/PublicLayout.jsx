@@ -26,16 +26,16 @@ export default function PublicLayout() {
       className={`text-sm tracking-wide transition-colors ${
         pathname === to
           ? "text-pine-700 font-semibold"
-          : "text-ink-600 hover:text-pine-700"
+          : "text-gray-600 hover:text-pine-700"
       }`}>
       {label}
     </Link>
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-sand-50">
+    <div className="min-h-screen flex flex-col bg-white">
       {/* ================= NAVBAR ================= */}
-      <header className="border-b border-sand-200 bg-sand-50/95 backdrop-blur sticky top-0 z-50">
+      <header className="border-b border-gray-200 bg-white/95 backdrop-blur sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-5 md:px-6 h-24 flex items-center justify-between">
           {/* Logo + Brand */}
           <Link
@@ -48,7 +48,7 @@ export default function PublicLayout() {
               className="h-20 w-20 object-contain shrink-0"
             />
 
-            <span className="font-display text-xl text-ink-800 tracking-tight group-hover:text-pine-700 transition-colors">
+            <span className="font-display text-xl text-gray-900 tracking-tight group-hover:text-pine-700 transition-colors">
               Bisek Atithi Griha
             </span>
           </Link>
@@ -63,7 +63,7 @@ export default function PublicLayout() {
 
             <Link
               to="/book"
-              className="bg-pine-700 text-sand-50 px-5 py-2 rounded-full text-sm font-semibold hover:bg-pine-800 transition-all shadow-sm">
+              className="bg-pine-700 text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-pine-800 transition-all shadow-sm">
               Book Now
             </Link>
           </nav>
@@ -72,7 +72,7 @@ export default function PublicLayout() {
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden w-11 h-11 rounded-xl flex items-center justify-center text-ink-700 hover:bg-sand-100 transition-colors"
+            className="md:hidden w-11 h-11 rounded-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}>
             {isMenuOpen ? (
@@ -109,17 +109,17 @@ export default function PublicLayout() {
 
         {/* ================= MOBILE NAVIGATION ================= */}
         <div
-          className={`md:hidden border-t border-sand-200 bg-sand-50 overflow-hidden transition-all duration-300 ${
+          className={`md:hidden border-t border-gray-200 bg-white overflow-hidden transition-all duration-300 ${
             isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}>
           <nav className="max-w-5xl mx-auto px-5 py-4 flex flex-col gap-1">
             <Link
               to="/"
               onClick={closeMenu}
-              className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                 pathname === "/"
-                  ? "bg-pine-700 text-sand-50"
-                  : "text-ink-700 hover:bg-sand-100 hover:text-pine-700"
+                  ? "bg-pine-700 text-white"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-pine-700"
               }`}>
               Home
             </Link>
@@ -127,10 +127,10 @@ export default function PublicLayout() {
             <Link
               to="/rooms"
               onClick={closeMenu}
-              className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                 pathname === "/rooms"
-                  ? "bg-pine-700 text-sand-50"
-                  : "text-ink-700 hover:bg-sand-100 hover:text-pine-700"
+                  ? "bg-pine-700 text-white"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-pine-700"
               }`}>
               Rooms
             </Link>
@@ -138,10 +138,10 @@ export default function PublicLayout() {
             <Link
               to="/facilities"
               onClick={closeMenu}
-              className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                 pathname === "/facilities"
-                  ? "bg-pine-700 text-sand-50"
-                  : "text-ink-700 hover:bg-sand-100 hover:text-pine-700"
+                  ? "bg-pine-700 text-white"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-pine-700"
               }`}>
               Facilities
             </Link>
@@ -149,10 +149,10 @@ export default function PublicLayout() {
             <Link
               to="/gallery"
               onClick={closeMenu}
-              className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                 pathname === "/gallery"
-                  ? "bg-pine-700 text-sand-50"
-                  : "text-ink-700 hover:bg-sand-100 hover:text-pine-700"
+                  ? "bg-pine-700 text-white"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-pine-700"
               }`}>
               Gallery
             </Link>
@@ -160,10 +160,10 @@ export default function PublicLayout() {
             <Link
               to="/contact"
               onClick={closeMenu}
-              className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                 pathname === "/contact"
-                  ? "bg-pine-700 text-sand-50"
-                  : "text-ink-700 hover:bg-sand-100 hover:text-pine-700"
+                  ? "bg-pine-700 text-white"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-pine-700"
               }`}>
               Contact
             </Link>
@@ -172,7 +172,7 @@ export default function PublicLayout() {
             <Link
               to="/book"
               onClick={closeMenu}
-              className="mt-2 bg-pine-700 text-sand-50 px-4 py-3 rounded-xl text-sm font-semibold text-center hover:bg-pine-800 transition-colors">
+              className="mt-2 bg-pine-700 text-white px-4 py-3 rounded-md text-sm font-semibold text-center hover:bg-pine-800 transition-colors">
               Book Now
             </Link>
           </nav>
@@ -185,12 +185,12 @@ export default function PublicLayout() {
       </main>
 
       {/* ================= FOOTER ================= */}
-      <footer className="border-t border-sand-200 mt-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm text-ink-600">
+      <footer className="border-t border-gray-200 mt-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm text-gray-600">
           {/* Footer information */}
           <div className="space-y-4">
             <div>
-              <p className="font-display text-lg text-ink-800 mb-1">
+              <p className="font-display text-lg text-gray-900 mb-1">
                 Bisek Atithi Griha
               </p>
 
@@ -224,9 +224,7 @@ export default function PublicLayout() {
 
           {/* Footer decoration + copyright */}
           <div className="flex flex-col items-end gap-3">
-            <DayStrip count={16} className="text-pine-700 opacity-60" />
-
-            <p className="text-[11px] text-ink-400">
+            <p className="text-[11px] text-gray-400">
               © 2026 Bisek Atithi Griha. All rights reserved.
             </p>
           </div>

@@ -70,18 +70,18 @@ export default function Dashboard() {
   return (
     <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <h1 className="font-display text-3xl text-ink-800 tracking-tight">Sales Dashboard</h1>
+        <h1 className="font-display text-3xl text-gray-900 tracking-tight">Sales Dashboard</h1>
 
         <div className="flex flex-wrap items-center gap-3">
-          <div className="bg-white p-1 border border-sand-200 rounded-2xl flex gap-1 shadow-sm">
+          <div className="bg-white p-1 border border-gray-200 rounded-lg flex gap-1 shadow-sm">
             {PRESETS.map((p) => (
               <button
                 key={p.key}
                 onClick={() => setPreset(p.key)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                   preset === p.key 
-                    ? 'bg-pine-700 text-sand-50 shadow-md shadow-pine-900/10' 
-                    : 'text-ink-600 hover:bg-sand-100'
+                    ? 'bg-pine-700 text-white shadow-md shadow-pine-900/10' 
+                    : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 {p.label}
@@ -91,7 +91,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-end gap-6 bg-white border border-sand-200 rounded-2xl p-6 shadow-sm">
+      <div className="flex flex-wrap items-end gap-6 bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
         {preset === 'custom' && (
           <div className="flex flex-wrap gap-4">
             <NepaliDateInput label="From Date" value={customFrom} onChange={setCustomFrom} maxAD={customTo} />
@@ -100,18 +100,18 @@ export default function Dashboard() {
         )}
 
         <div className="flex-1 min-w-[200px]">
-          <label className="block text-xs font-bold text-ink-400 uppercase tracking-widest mb-2">Payment Method</label>
+          <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Payment Method</label>
           <div className="relative">
             <select
               value={methodFilter}
               onChange={(e) => setMethodFilter(e.target.value)}
-              className="w-full appearance-none bg-sand-50 border border-sand-200 rounded-xl px-4 py-2.5 text-sm font-medium text-ink-800 focus:ring-2 focus:ring-pine-700/20 outline-none transition-all"
+              className="w-full appearance-none bg-white border border-gray-200 rounded-md px-4 py-2.5 text-sm font-medium text-gray-900 focus:ring-2 focus:ring-pine-700/20 outline-none transition-all"
             >
               <option value="all">All Methods</option>
               <option value="cash">Cash Only</option>
               <option value="qr">QR Only</option>
             </select>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-ink-400">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -121,38 +121,38 @@ export default function Dashboard() {
       </div>
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-20 text-ink-400 gap-4">
-          <div className="w-10 h-10 border-4 border-sand-200 border-t-pine-700 rounded-full animate-spin"></div>
+        <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-4">
+          <div className="w-10 h-10 border-4 border-gray-200 border-t-pine-700 rounded-md animate-spin"></div>
           <p className="text-sm font-medium">Crunching the numbers...</p>
         </div>
       ) : (
         <div className="grid lg:grid-cols-4 gap-6">
           {/* Summary Card */}
-          <div className="lg:col-span-4 bg-white border border-sand-200 rounded-[2rem] p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="lg:col-span-4 bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className="space-y-1">
-              <p className="text-xs font-bold text-ink-400 uppercase tracking-widest">Total Revenue</p>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Total Revenue</p>
               <div className="flex items-baseline gap-2">
-                <span className="text-sm font-medium text-ink-400">NPR</span>
-                <span className="font-display text-5xl text-ink-800 tracking-tight">{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                <span className="text-sm font-medium text-gray-400">NPR</span>
+                <span className="font-display text-5xl text-gray-900 tracking-tight">{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="bg-sand-100 rounded-2xl px-6 py-4">
-                <p className="text-[10px] font-bold text-ink-400 uppercase tracking-widest mb-1">Transactions</p>
-                <p className="text-2xl font-display text-ink-800">{filtered.length}</p>
+              <div className="bg-gray-100 rounded-lg px-6 py-4">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Transactions</p>
+                <p className="text-2xl font-display text-gray-900">{filtered.length}</p>
               </div>
-              <div className="bg-sand-100 rounded-2xl px-6 py-4">
-                <p className="text-[10px] font-bold text-ink-400 uppercase tracking-widest mb-1">Avg. Transaction</p>
-                <p className="text-2xl font-display text-ink-800">NPR {(total / (filtered.length || 1)).toFixed(0)}</p>
+              <div className="bg-gray-100 rounded-lg px-6 py-4">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Avg. Transaction</p>
+                <p className="text-2xl font-display text-gray-900">NPR {(total / (filtered.length || 1)).toFixed(0)}</p>
               </div>
             </div>
           </div>
 
           {/* Revenue Chart */}
-          <div className="lg:col-span-3 bg-white border border-sand-200 rounded-[2rem] p-8 shadow-sm">
+          <div className="lg:col-span-3 bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="font-display text-xl text-ink-800">Revenue Trends</h3>
-              <span className="text-[10px] font-bold text-ink-400 uppercase tracking-widest">Daily breakdown (BS)</span>
+              <h3 className="font-display text-xl text-gray-900">Revenue Trends</h3>
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Daily breakdown (BS)</span>
             </div>
             <div className="h-[350px] w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -182,10 +182,10 @@ export default function Dashboard() {
           </div>
 
           {/* Method Chart */}
-          <div className="bg-white border border-sand-200 rounded-[2rem] p-8 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm">
             <div className="mb-8">
-              <h3 className="font-display text-xl text-ink-800">Payment Mix</h3>
-              <p className="text-[10px] font-bold text-ink-400 uppercase tracking-widest">Cash vs Digital</p>
+              <h3 className="font-display text-xl text-gray-900">Payment Mix</h3>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Cash vs Digital</p>
             </div>
             <div className="h-[250px] w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -212,12 +212,12 @@ export default function Dashboard() {
             </div>
             <div className="mt-6 space-y-3">
               {byMethod.map((m, i) => (
-                <div key={m.name} className="flex items-center justify-between p-3 rounded-xl bg-sand-50">
+                <div key={m.name} className="flex items-center justify-between p-3 rounded-md bg-white">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: PIE_COLORS[i] }}></div>
-                    <span className="text-xs font-bold text-ink-800 uppercase tracking-wider">{m.name}</span>
+                    <div className="w-2 h-2 rounded-md" style={{ backgroundColor: PIE_COLORS[i] }}></div>
+                    <span className="text-xs font-bold text-gray-900 uppercase tracking-wider">{m.name}</span>
                   </div>
-                  <span className="text-sm font-medium text-ink-600">
+                  <span className="text-sm font-medium text-gray-600">
                     {total > 0 ? ((m.value / total) * 100).toFixed(1) : 0}%
                   </span>
                 </div>

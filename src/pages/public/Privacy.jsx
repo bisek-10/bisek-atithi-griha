@@ -1,13 +1,13 @@
 export default function Privacy() {
   return (
     <section className="max-w-3xl mx-auto px-6 py-20 space-y-8">
-      <h1 className="font-display text-4xl text-ink-800">Privacy Policy</h1>
-      <p className="text-ink-600 leading-relaxed">
+      <h1 className="font-display text-4xl text-gray-900">Privacy Policy</h1>
+      <p className="text-gray-600 leading-relaxed">
         At Bisek Atithi Griha, we value the privacy of our guests. This policy outlines how we handle 
         the information you provide during your stay or booking process.
       </p>
       
-      <div className="space-y-4 text-ink-700">
+      <div className="space-y-4 text-gray-700">
         <h2 className="text-xl font-semibold">1. Information Collection</h2>
         <p className="text-sm">
           We collect basic identity information (Name, Phone Number, Address) as required by local 
@@ -27,7 +27,7 @@ export default function Privacy() {
         </p>
       </div>
       
-      <p className="text-xs text-ink-400 pt-10">Last updated: August 2026</p>
+      <p className="text-xs text-gray-400 pt-10">Last updated: August 2026</p>
     </section>
   )
 }
