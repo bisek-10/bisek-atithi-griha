@@ -198,7 +198,9 @@ export default function Settings() {
       {/* QR Code */}
       <section className="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm">
         <div className="mb-8">
-          <h2 className="font-display text-xl text-gray-900">Payment QR Code</h2>
+          <h2 className="font-display text-xl text-gray-900">
+            Payment QR Code
+          </h2>
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
             Guests scan this to pay at checkout
           </p>
@@ -315,9 +317,7 @@ export default function Settings() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {rooms.map((r) => (
-                <tr
-                  key={r.id}
-                  className="hover:bg-white/50 transition-colors">
+                <tr key={r.id} className="hover:bg-white/50 transition-colors">
                   <td className="px-6 py-4 font-display text-lg text-gray-900">
                     {r.id}
                   </td>
@@ -456,9 +456,7 @@ export default function Settings() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {catalog.map((c) => (
-                <tr
-                  key={c.id}
-                  className="hover:bg-white/50 transition-colors">
+                <tr key={c.id} className="hover:bg-white/50 transition-colors">
                   <td className="px-6 py-4">
                     <input
                       value={c.name}

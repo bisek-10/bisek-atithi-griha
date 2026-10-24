@@ -1,24 +1,24 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const MAPS_URL = 'https://maps.app.goo.gl/6GRTER9R9hxoL3G78'
+const MAPS_URL = "https://maps.app.goo.gl/6GRTER9R9hxoL3G78";
 
 export default function Home() {
-  const [imageError, setImageError] = useState(false)
+  const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="page-enter min-h-screen">
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto px-6 pt-16 pb-24 grid md:grid-cols-12 gap-12 items-center">
+      <section className="max-w-6xl mx-auto px-6 pt-14 md:pt-20 pb-24 grid md:grid-cols-12 gap-12 items-center">
         {/* Left Column: Text Content */}
         <div className="md:col-span-7 space-y-8 text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-pine-700/10 border border-pine-700/20 text-pine-700 font-semibold text-xs tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pine-700/10 border border-pine-700/20 text-pine-700 font-semibold text-xs tracking-wider uppercase">
             <span className="w-1.5 h-1.5 rounded-md bg-pine-700 animate-pulse"></span>
             Located near Cancer Gate No. 1
           </div>
 
           <div className="space-y-4">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-[1.12] tracking-tight">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-pine-900 leading-[1.05] tracking-tight">
               Bisek Atithi Griha
             </h1>
             <p className="text-pine-700/90 font-display text-lg md:text-xl lg:text-2xl italic leading-relaxed">
@@ -42,7 +42,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               to="/Book"
-              className="bg-pine-700 text-white px-7 py-3.5 rounded-md text-sm font-semibold hover:bg-pine-800 hover:shadow-md transition-all duration-200">
+              className="bg-pine-700 text-white px-7 py-3.5 rounded-md text-sm font-semibold hover:bg-pine-800 hover:-translate-y-0.5 hover:shadow-xl shadow-lg shadow-pine-900/15">
               Book Now
             </Link>
             <a
@@ -57,7 +57,7 @@ export default function Home() {
 
         {/* Right Column: Property Image Slot */}
         <div className="md:col-span-5 h-full">
-          <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden shadow-sm group">
+          <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-pine-900/15 group ring-8 ring-white/60">
             {!imageError ? (
               <img
                 src="/property.jpeg"
@@ -103,13 +103,13 @@ export default function Home() {
       {/* Facilities Grid */}
       <section
         id="facilities"
-        className="bg-white border-y border-gray-200 py-20">
+        className="border-y border-pine-900/10 bg-white/55 py-20">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <h2 className="font-display text-3xl text-gray-900">
               Our Services & Facilities
             </h2>
-            <div className="w-16 h-1 bg-pine-700 mx-auto rounded-md"></div>
+            <div className="w-16 h-1 bg-saffron-500 mx-auto rounded-full"></div>
             <p className="text-gray-600 text-sm md:text-base">
               Providing a supportive atmosphere with all the essentials for a
               comfortable, budget-friendly hospital stay.
@@ -245,5 +245,5 @@ function FacilityCard({ title, desc, icon }) {
       <h3 className="text-base font-semibold text-gray-900">{title}</h3>
       <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
     </div>
-  )
+  );
 }

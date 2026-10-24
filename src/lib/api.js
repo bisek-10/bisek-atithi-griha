@@ -286,6 +286,17 @@ export async function updateStayReturnEstimate(stayId, expectedReturnDate) {
   if (error) throw error;
 }
 
+export async function fetchReturnReminders() {
+  const { data, error } = await supabase
+    .from("stays")
+    .select("id, room_id, patient_name, contact_number, expected_return_date")
+    .eq("status", "occupied")
+    .not("expected_return_date", "is", null)
+    .order("expected_return_date", { ascending: true });
+  if (error) throw error;
+  return data;
+}
+
 // ---------- Sales / dashboard ----------
 export async function fetchAllPaymentsBetween(from, to) {
   let query = supabase

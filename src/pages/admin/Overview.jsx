@@ -1,34 +1,61 @@
-import { useCallback, useEffect, useState } from 'react'
-import RoomCard from '../../components/RoomCard'
-import CheckInModal from '../../components/CheckInModal'
-import RoomDetailModal from '../../components/RoomDetailModal'
-import { fetchRoomsWithStatus } from '../../lib/api'
-import { formatBS } from '../../lib/nepaliDate'
+import { useCallback, useEffect, useState } from "react";
+import RoomCard from "../../components/RoomCard";
+import CheckInModal from "../../components/CheckInModal";
+import RoomDetailModal from "../../components/RoomDetailModal";
+import { fetchReturnReminders, fetchRoomsWithStatus } from "../../lib/api";
+import { formatBS } from "../../lib/nepaliDate";
+
+function dateKey(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function addDays(date, days) {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
 
 export default function Overview() {
-  const [rooms, setRooms] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [checkInFor, setCheckInFor] = useState(undefined) // undefined = closed, null = open w/o preset room, number = preset room
-  const [detailRoom, setDetailRoom] = useState(null)
+  const [rooms, setRooms] = useState([]);
+  const [returnReminders, setReturnReminders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [checkInFor, setCheckInFor] = useState(undefined); // undefined = closed, null = open w/o preset room, number = preset room
+  const [detailRoom, setDetailRoom] = useState(null);
 
   const load = useCallback(async () => {
-    setLoading(true)
-    const r = await fetchRoomsWithStatus()
-    setRooms(r)
-    setLoading(false)
-  }, [])
+    setLoading(true);
+    try {
+      const [r, returns] = await Promise.all([
+        fetchRoomsWithStatus(),
+        fetchReturnReminders(),
+      ]);
+      setRooms(r);
+      setReturnReminders(returns);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    load()
-  }, [load])
+    load();
+  }, [load]);
 
-  const freeCount = rooms.filter((r) => !r.currentStay).length
+  const freeCount = rooms.filter((r) => !r.currentStay).length;
+  const today = new Date();
+  const todayKey = dateKey(today);
+  const reminderCutoff = dateKey(addDays(today, 3));
+  const reminders = returnReminders.filter(
+    (stay) => stay.expected_return_date <= reminderCutoff,
+  );
 
   function handleRoomClick(room) {
     if (room.currentStay) {
-      setDetailRoom(room)
+      setDetailRoom(room);
     } else {
-      setCheckInFor(room.id)
+      setCheckInFor(room.id);
     }
   }
 
@@ -37,32 +64,58 @@ export default function Overview() {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
-          <h1 className="font-display text-3xl text-gray-900 tracking-tight">Room Overview</h1>
+          <h1 className="font-display text-3xl text-gray-900 tracking-tight">
+            Room Overview
+          </h1>
           <div className="flex items-center gap-2 mt-1">
-            <span className="text-sm font-medium text-gray-600 bg-gray-200 px-2 py-0.5 rounded-md">{formatBS(new Date())} BS</span>
+            <span className="text-sm font-medium text-gray-600 bg-gray-200 px-2 py-0.5 rounded-md">
+              {formatBS(new Date())} BS
+            </span>
             <span className="text-sm text-gray-400">·</span>
-            <span className="text-sm text-gray-500 font-medium">{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+            <span className="text-sm text-gray-500 font-medium">
+              {new Date().toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })}
+            </span>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center bg-white border border-gray-200 rounded-lg p-1.5 shadow-sm">
             <div className="px-4 py-1.5 border-r border-gray-100 text-center">
-              <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Available</p>
-              <p className="text-lg font-display text-room-free leading-tight">{freeCount}</p>
+              <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                Available
+              </p>
+              <p className="text-lg font-display text-room-free leading-tight">
+                {freeCount}
+              </p>
             </div>
             <div className="px-4 py-1.5 text-center">
-              <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Occupied</p>
-              <p className="text-lg font-display text-room-occupied leading-tight">{rooms.length - freeCount}</p>
+              <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                Occupied
+              </p>
+              <p className="text-lg font-display text-room-occupied leading-tight">
+                {rooms.length - freeCount}
+              </p>
             </div>
           </div>
 
           <button
             onClick={() => setCheckInFor(null)}
-            className="bg-pine-700 text-white rounded-lg px-6 py-3 text-sm font-bold shadow-lg shadow-pine-900/10 hover:bg-pine-800 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            className="bg-pine-700 text-white rounded-lg px-6 py-3 text-sm font-bold shadow-lg shadow-pine-900/10 hover:bg-pine-800 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4v16m8-8H4"
+              />
             </svg>
             New Check-in
           </button>
@@ -75,24 +128,90 @@ export default function Overview() {
           <p className="text-sm font-medium">Loading room layout...</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
-          {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} onClick={() => handleRoomClick(room)} />
-          ))}
-        </div>
+        <>
+          {reminders.length > 0 && (
+            <section className="mb-8 bg-amber-50 border border-amber-200 rounded-lg p-5">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div>
+                  <h2 className="text-base font-bold text-amber-950">
+                    Expected return reminders
+                  </h2>
+                  <p className="text-sm text-amber-800 mt-1">
+                    Follow up with these guests and plan the rooms ahead.
+                  </p>
+                </div>
+                <span className="shrink-0 bg-amber-200 text-amber-900 rounded-md px-2.5 py-1 text-xs font-bold">
+                  {reminders.length}{" "}
+                  {reminders.length === 1 ? "reminder" : "reminders"}
+                </span>
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {reminders.map((stay) => {
+                  const isOverdue = stay.expected_return_date < todayKey;
+                  const isDueToday = stay.expected_return_date === todayKey;
+                  return (
+                    <div
+                      key={stay.id}
+                      className="bg-white border border-amber-200 rounded-md p-4 flex items-center justify-between gap-4">
+                      <div className="min-w-0">
+                        <p className="font-bold text-gray-900 truncate">
+                          {stay.patient_name || "Guest"} · Room {stay.room_id}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {stay.contact_number || "No phone number"}
+                        </p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p
+                          className={`text-xs font-bold uppercase tracking-wide ${isOverdue ? "text-red-600" : "text-amber-700"}`}>
+                          {isOverdue
+                            ? "Overdue"
+                            : isDueToday
+                              ? "Due today"
+                              : "Due soon"}
+                        </p>
+                        <p className="text-sm font-bold text-gray-900 mt-1">
+                          {formatBS(stay.expected_return_date)}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
+            {rooms.map((room) => (
+              <RoomCard
+                key={room.id}
+                room={room}
+                onClick={() => handleRoomClick(room)}
+              />
+            ))}
+          </div>
+        </>
       )}
 
       {checkInFor !== undefined && (
         <CheckInModal
           presetRoomId={checkInFor || null}
           onClose={() => setCheckInFor(undefined)}
-          onDone={() => { setCheckInFor(undefined); load() }}
+          onDone={() => {
+            setCheckInFor(undefined);
+            load();
+          }}
         />
       )}
 
       {detailRoom && (
-        <RoomDetailModal room={detailRoom} onClose={() => setDetailRoom(null)} onChanged={load} />
+        <RoomDetailModal
+          room={detailRoom}
+          onClose={() => setDetailRoom(null)}
+          onChanged={load}
+        />
       )}
     </div>
-  )
+  );
 }

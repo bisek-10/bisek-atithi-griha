@@ -29,11 +29,14 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-pine-900 flex items-center justify-center px-6 py-12 relative overflow-hidden">
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-lg p-8 w-full max-w-sm shadow-xl">
-        <h1 className="font-display text-2xl text-gray-900 mb-1">Staff login</h1>
+        className="glass-panel rounded-2xl p-8 w-full max-w-sm shadow-2xl relative">
+        <p className="eyebrow mb-3">Bisek Atithi Griha</p>
+        <h1 className="font-display text-2xl font-semibold text-pine-900 mb-1">
+          Staff login
+        </h1>
 
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Email
@@ -65,7 +68,6 @@ export default function Login() {
           className="w-full bg-pine-700 text-white rounded-lg py-2.5 font-semibold hover:bg-pine-800 transition-colors disabled:opacity-60">
           {loading ? "Signing in…" : "Sign in"}
         </button>
-
       </form>
     </div>
   );

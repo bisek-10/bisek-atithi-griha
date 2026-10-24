@@ -105,7 +105,7 @@ export default function AdminLayout() {
 
   const sidebarClasses = `
     fixed inset-y-0 left-0 z-40
-    bg-gray-900 text-white
+    bg-pine-900/95 text-white border-r border-white/10 shadow-2xl shadow-pine-900/10
     transition-all duration-300 ease-in-out transform
     lg:translate-x-0 lg:static lg:block
     ${isCollapsed ? "lg:w-20" : "lg:w-64"}
@@ -113,9 +113,9 @@ export default function AdminLayout() {
   `;
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50 font-body">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-[#f3f6f2] font-body">
       {/* Mobile Header */}
-      <header className="lg:hidden bg-gray-900 text-white p-4 flex items-center justify-between sticky top-0 z-30">
+      <header className="lg:hidden bg-pine-900 text-white p-4 flex items-center justify-between sticky top-0 z-30 shadow-lg">
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsMobileOpen(true)}
@@ -169,7 +169,7 @@ export default function AdminLayout() {
 
           {isCollapsed && (
             <div className="hidden lg:flex flex-col items-center gap-1">
-              <div className="w-8 h-8 rounded-lg bg-pine-700 flex items-center justify-center font-display text-white">
+              <div className="w-8 h-8 rounded-lg bg-saffron-500 flex items-center justify-center font-display text-pine-900 font-bold">
                 B
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function AdminLayout() {
 
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-md bg-gray-800 text-white/50 hover:text-white transition-colors"
+            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-md bg-white/10 text-white/50 hover:text-white transition-colors"
             title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}>
             <svg
               className={`w-4 h-4 transition-transform duration-300 ${
@@ -208,7 +208,7 @@ export default function AdminLayout() {
                 `flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 group ${
                   isActive
                     ? "bg-pine-700 text-white shadow-lg shadow-pine-900/20"
-                    : "text-white/60 hover:bg-gray-800 hover:text-white"
+                    : "text-white/60 hover:bg-white/10 hover:text-white"
                 } ${isCollapsed ? "lg:justify-center lg:px-0" : ""}`
               }>
               {/* Fixed: isActive is no longer referenced outside its scope */}

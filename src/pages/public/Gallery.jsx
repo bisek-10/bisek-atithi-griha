@@ -43,14 +43,12 @@ const galleryImages = [
 
 export default function Gallery() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
+    <section className="page-enter max-w-6xl mx-auto px-6 py-16 md:py-20">
       {/* Header */}
       <div className="max-w-3xl mb-12">
-        <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-2">
-          Gallery
-        </p>
+        <p className="eyebrow mb-3">Gallery</p>
 
-        <h1 className="font-display text-4xl text-gray-900 mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-semibold text-pine-900 mb-4">
           A glimpse of Bisek Atithi Griha
         </h1>
 
@@ -66,7 +64,7 @@ export default function Gallery() {
         {galleryImages.map((image) => (
           <div
             key={image.src}
-            className="group overflow-hidden rounded-lg border border-gray-200 bg-white">
+            className="group overflow-hidden rounded-2xl border border-pine-900/10 bg-white/75 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={image.src}
@@ -86,7 +84,7 @@ export default function Gallery() {
       </div>
 
       {/* Bottom message */}
-      <div className="mt-16 bg-pine-700 rounded-lg px-6 py-10 sm:px-10 text-center text-white">
+      <div className="mt-16 bg-pine-800 rounded-2xl px-6 py-10 sm:px-10 text-center text-white shadow-xl shadow-pine-900/15">
         <h2 className="font-display text-3xl mb-3">
           A comfortable place to stay during treatment
         </h2>

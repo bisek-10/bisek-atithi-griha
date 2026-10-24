@@ -33,10 +33,10 @@ export default function PublicLayout() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="site-shell min-h-screen flex flex-col">
       {/* ================= NAVBAR ================= */}
-      <header className="border-b border-gray-200 bg-white/95 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-5 md:px-6 h-24 flex items-center justify-between">
+      <header className="sticky top-0 z-50 border-b border-pine-900/10 bg-white/75 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
           {/* Logo + Brand */}
           <Link
             to="/"
@@ -45,16 +45,16 @@ export default function PublicLayout() {
             <img
               src="/logo-cropped.svg"
               alt="Bisek Atithi Griha"
-              className="h-20 w-20 object-contain shrink-0"
+              className="h-14 w-14 object-contain shrink-0"
             />
 
-            <span className="font-display text-xl text-gray-900 tracking-tight group-hover:text-pine-700 transition-colors">
+            <span className="font-display text-lg font-semibold text-pine-900 tracking-tight group-hover:text-pine-700 transition-colors">
               Bisek Atithi Griha
             </span>
           </Link>
 
           {/* ================= DESKTOP NAVIGATION ================= */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-7">
             {navLink("/", "Home")}
             {navLink("/rooms", "Rooms")}
             {navLink("/facilities", "Facilities")}
@@ -63,7 +63,7 @@ export default function PublicLayout() {
 
             <Link
               to="/book"
-              className="bg-pine-700 text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-pine-800 transition-all shadow-sm">
+              className="bg-pine-700 text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-pine-800 hover:-translate-y-0.5 shadow-lg shadow-pine-900/15">
               Book Now
             </Link>
           </nav>
@@ -109,7 +109,7 @@ export default function PublicLayout() {
 
         {/* ================= MOBILE NAVIGATION ================= */}
         <div
-          className={`md:hidden border-t border-gray-200 bg-white overflow-hidden transition-all duration-300 ${
+          className={`md:hidden border-t border-pine-900/10 bg-white/95 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
             isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}>
           <nav className="max-w-5xl mx-auto px-5 py-4 flex flex-col gap-1">
@@ -185,12 +185,12 @@ export default function PublicLayout() {
       </main>
 
       {/* ================= FOOTER ================= */}
-      <footer className="border-t border-gray-200 mt-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm text-gray-600">
+      <footer className="border-t border-pine-900/10 mt-16 bg-pine-900 text-white/70">
+        <div className="max-w-6xl mx-auto px-6 py-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm">
           {/* Footer information */}
           <div className="space-y-4">
             <div>
-              <p className="font-display text-lg text-gray-900 mb-1">
+              <p className="font-display text-lg text-white mb-1">
                 Bisek Atithi Griha
               </p>
 

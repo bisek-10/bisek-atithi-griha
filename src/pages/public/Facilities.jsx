@@ -57,14 +57,12 @@ const facilities = [
 
 export default function Facilities() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
+    <section className="page-enter max-w-6xl mx-auto px-6 py-16 md:py-20">
       {/* Header */}
       <div className="max-w-3xl mb-12">
-        <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-2">
-          Our Services & Facilities
-        </p>
+        <p className="eyebrow mb-3">Our Services & Facilities</p>
 
-        <h1 className="font-display text-4xl text-gray-900 mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-semibold text-pine-900 mb-4">
           Comfort and essentials for your stay
         </h1>
 
@@ -80,7 +78,7 @@ export default function Facilities() {
         {facilities.map((facility) => (
           <div
             key={facility.title}
-            className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+            className="glass-panel rounded-2xl p-7 hover:-translate-y-1 hover:shadow-xl transition-all">
             <div className="text-4xl mb-5" aria-hidden="true">
               {facility.icon}
             </div>
@@ -97,11 +95,9 @@ export default function Facilities() {
       </div>
 
       {/* Location highlight */}
-      <div className="mt-16 bg-pine-700 rounded-lg px-6 py-10 sm:px-10 text-white">
+      <div className="mt-16 bg-pine-800 rounded-2xl px-6 py-10 sm:px-10 text-white shadow-xl shadow-pine-900/15">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide text-pine-600 font-semibold mb-2">
-            Conveniently Located
-          </p>
+          <p className="eyebrow text-saffron-100 mb-2">Conveniently Located</p>
 
           <h2 className="font-display text-3xl mb-4">
             Stay close to B.P. Koirala Memorial Cancer Hospital

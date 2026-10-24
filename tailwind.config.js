@@ -5,9 +5,18 @@ export default {
     extend: {
       colors: {
         pine: {
-          600: "#2F4F3E",
-          700: "#25402F",
-          800: "#1B2F22",
+          50: "#F1F7F3",
+          100: "#DDECE1",
+          300: "#9CC5A7",
+          600: "#326047",
+          700: "#234A35",
+          800: "#173326",
+          900: "#0E241A",
+        },
+        saffron: {
+          100: "#FFF3D6",
+          500: "#C58B22",
+          600: "#A86F12",
         },
         room: {
           free: "#2F8F5B",
@@ -17,8 +26,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Inter"', "sans-serif"],
-        body: ['"Inter"', "sans-serif"],
+        display: ['"DM Sans"', "sans-serif"],
+        body: ['"Manrope"', "sans-serif"],
         np: ['"Noto Sans Devanagari"', "sans-serif"],
       },
     },

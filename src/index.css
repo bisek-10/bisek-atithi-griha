@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +9,14 @@ html {
 }
 
 body {
-  @apply bg-white text-gray-900 font-body antialiased;
+  @apply bg-[#f7f8f5] text-gray-900 font-body antialiased;
+  background-image:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(197, 139, 34, 0.08),
+      transparent 28rem
+    ),
+    radial-gradient(circle at 0% 20%, rgba(35, 74, 53, 0.06), transparent 32rem);
 }
 
 ::selection {
@@ -35,4 +44,64 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400;
+}
+
+/* Shared surface language. Keep the blur restrained so content stays crisp. */
+.site-shell {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(247, 248, 245, 0.96)
+  );
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(35, 74, 53, 0.12);
+  box-shadow: 0 18px 45px rgba(29, 55, 39, 0.07);
+  backdrop-filter: blur(16px);
+}
+
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[.18em] text-pine-700;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+input,
+select,
+textarea {
+  @apply bg-white/80;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 4px rgba(35, 74, 53, 0.1);
+}
+
+.page-enter {
+  animation: page-enter 0.45s ease both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

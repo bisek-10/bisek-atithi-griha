@@ -9,20 +9,18 @@ export default function Book() {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
+    <section className="page-enter max-w-6xl mx-auto px-6 py-16 md:py-20">
       {/* Header */}
       <div className="max-w-3xl mb-12">
-        <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-2">
-          Book Your Stay
-        </p>
+        <p className="eyebrow mb-3">Book Your Stay</p>
 
         <h1 className="font-display text-4xl text-gray-900 mb-4">
           Plan your stay with us
         </h1>
 
         <p className="text-gray-600 leading-7">
-          Tell us about your stay and we will get in touch with you to
-          confirm room availability and booking details.
+          Tell us about your stay and we will get in touch with you to confirm
+          room availability and booking details.
         </p>
       </div>
 
@@ -36,15 +34,14 @@ export default function Book() {
               </h2>
 
               <p className="text-gray-600 leading-7">
-                We have received your request. Our team will contact you
-                shortly to discuss availability and confirm your stay.
+                We have received your request. Our team will contact you shortly
+                to discuss availability and confirm your stay.
               </p>
             </div>
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="space-y-6 rounded-lg border border-gray-200 bg-white p-6 sm:p-8"
-            >
+              className="space-y-6 glass-panel rounded-2xl p-6 sm:p-8">
               {/* Personal Information */}
               <div>
                 <h2 className="font-display text-2xl text-gray-900 mb-5">
@@ -55,8 +52,7 @@ export default function Book() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Full Name *
                     </label>
 
@@ -73,8 +69,7 @@ export default function Book() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Phone Number *
                     </label>
 
@@ -91,8 +86,7 @@ export default function Book() {
                   <div className="sm:col-span-2">
                     <label
                       htmlFor="email"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Email Address
                     </label>
 
@@ -117,8 +111,7 @@ export default function Book() {
                   <div>
                     <label
                       htmlFor="checkIn"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Check-in *
                     </label>
 
@@ -134,8 +127,7 @@ export default function Book() {
                   <div>
                     <label
                       htmlFor="checkOut"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Check-out *
                     </label>
 
@@ -151,8 +143,7 @@ export default function Book() {
                   <div>
                     <label
                       htmlFor="guests"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Number of Guests *
                     </label>
 
@@ -161,8 +152,7 @@ export default function Book() {
                       name="guests"
                       required
                       defaultValue=""
-                      className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none focus:border-pine-700"
-                    >
+                      className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none focus:border-pine-700">
                       <option value="" disabled>
                         Select guests
                       </option>
@@ -178,8 +168,7 @@ export default function Book() {
                   <div>
                     <label
                       htmlFor="room"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
+                      className="block text-sm font-semibold text-gray-700 mb-2">
                       Room Preference
                     </label>
 
@@ -187,20 +176,15 @@ export default function Book() {
                       id="room"
                       name="room"
                       defaultValue=""
-                      className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none focus:border-pine-700"
-                    >
+                      className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none focus:border-pine-700">
                       <option value="" disabled>
                         Select room type
                       </option>
-                      <option value="standard">
-                        Standard Room
-                      </option>
+                      <option value="standard">Standard Room</option>
                       <option value="attached-bathroom">
                         Attached Bathroom Room
                       </option>
-                      <option value="any">
-                        Any Available Room
-                      </option>
+                      <option value="any">Any Available Room</option>
                     </select>
                   </div>
                 </div>
@@ -210,8 +194,7 @@ export default function Book() {
               <div className="pt-4">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
+                  className="block text-sm font-semibold text-gray-700 mb-2">
                   Additional Information
                 </label>
 
@@ -228,14 +211,13 @@ export default function Book() {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-pine-700 text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-pine-800 transition-colors shadow-sm"
-                >
+                  className="w-full sm:w-auto bg-pine-700 text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-pine-800 transition-colors shadow-sm">
                   Send Booking Inquiry
                 </button>
 
                 <p className="mt-3 text-xs text-gray-500">
-                  Submitting this form is an inquiry only. Your booking will
-                  be confirmed after we contact you and verify availability.
+                  Submitting this form is an inquiry only. Your booking will be
+                  confirmed after we contact you and verify availability.
                 </p>
               </div>
             </form>
@@ -259,7 +241,7 @@ export default function Book() {
             </p>
           </div>
 
-          <div className="rounded-lg bg-white border border-gray-200 p-6 space-y-5">
+          <div className="glass-panel rounded-2xl p-6 space-y-5">
             <div>
               <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-1">
                 Phone
@@ -297,8 +279,7 @@ export default function Book() {
 
           <a
             href="tel:9855057330"
-            className="block text-center bg-pine-700 text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-pine-800 transition-colors shadow-sm"
-          >
+            className="block text-center bg-pine-700 text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-pine-800 transition-colors shadow-sm">
             Call Us
           </a>
         </aside>

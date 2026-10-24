@@ -5,8 +5,11 @@ const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
 
 export default function Contact() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl text-gray-900 mb-4">Find us</h1>
+    <section className="page-enter max-w-6xl mx-auto px-6 py-16 md:py-20">
+      <p className="eyebrow mb-3">Come say hello</p>
+      <h1 className="font-display text-4xl md:text-5xl font-semibold text-pine-900 mb-4">
+        Find us
+      </h1>
       <p className="text-gray-600 max-w-2xl mb-8">
         We are located at Bisek Atithi Griha near B.P. Koirala Memorial Cancer
         Hospital, Cancer Gate No. 1, Bharatpur-7, Chitwan. Call ahead if you'd
@@ -14,7 +17,7 @@ export default function Contact() {
       </p>
 
       <div className="grid sm:grid-cols-2 gap-8">
-        <div className="space-y-4">
+        <div className="glass-panel rounded-2xl p-7 space-y-5">
           <div>
             <p className="text-xs uppercase tracking-wide text-pine-700 font-semibold mb-1">
               Address
@@ -45,7 +48,7 @@ export default function Contact() {
             </a>
           </div>
         </div>
-        <div className="rounded-lg overflow-hidden border border-gray-200 aspect-video">
+        <div className="rounded-2xl overflow-hidden border border-pine-900/10 aspect-video shadow-xl shadow-pine-900/10">
           <iframe
             title="Location map"
             className="w-full h-full"
